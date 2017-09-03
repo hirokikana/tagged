@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+service Tagged {
+  rpc Add (AddRequest) returns (AddReply) {}
+  rpc GetGivenedTag (Content) returns (GetGivenedTagReply) {}
+}
+
+message GetGivenedTagReply {
+  repeated Tag tags = 1;
+}
+
+message Tag {
+  string name = 1;
+}
+
+message Content {
+  string path = 1;
+}
+
+message AddRequest {
+  Tag tag = 1;
+  Content content = 2;
+}
+
+message AddReply {
+  bool result = 1;
+}
